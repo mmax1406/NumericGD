@@ -2,12 +2,12 @@ clear all; clc;
 
 syms f(x,y,z)
 
-x0 = [1e-5,1e-5];
+x0 = [1,1];
 
-[x, err] = GDN(@test1, x0)
+[x, err] = GDN(@test1, x0, 1)
 
-test2([0,-1])
-[x, err] = GDN(@test2, x0)
+x0 = [1,0];
+[x, err] = GDN(@test2, x0, 1, 1e-20, 20, 5, 2)
 
 function out = test1(vec)
     out = vec(1)^2+vec(2)^2; % sol : f[0,0]=0
